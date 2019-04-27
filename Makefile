@@ -6,15 +6,21 @@
 #    By: rgyles <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/21 10:19:01 by rgyles            #+#    #+#              #
-#    Updated: 2019/01/30 13:56:59 by rgyles           ###   ########.fr        #
+#    Updated: 2019/04/27 18:57:22 by rgyles           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-EXE = fractol
+NAME = fractol
 
-LIB = libfdf.a
+LIB_DIR = libft
 
-MLX = minilibx_macos/libmlx.a
+LIB = $(LIB_DIR)/libft.a
+
+MLX_DIR = minilibx_macos
+
+MLX = $(MLX_DIR)/libmlx.a
+
+SRC_DIR = sources
 
 SRC = main.c \
 		ft_image_man.c \
@@ -28,37 +34,37 @@ SRC = main.c \
 		ft_gpu_init.c\
 		ft_get_source_file.c
 
-OBJ = $(SRC:.c=.o) 
+OBJ_DIR = objects
 
-LIB_SRC = $(addprefix libft/, $(shell ls libft | grep .c))
-
-LIB_OBJ = $(LIB_SRC:.c=.o)
+OBJ = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 
 FLAGS = -Wall -Wextra -Werror
 
-all: $(EXE)
+all: $(NAME)
 
-$(EXE): $(OBJ) $(LIB) $(MLX)
-	gcc $(FLAGS) -o $(EXE) $(OBJ) $(LIB) -L minilibx_macos -l mlx -framework OpenGL -framework Appkit -framework OpenCL
+$(NAME): $(OBJ) $(LIB) $(MLX)
+	gcc $(FLAGS) -o $(NAME) -I includes -I libft $(OBJ) $(LIB) $(MLX) -framework OpenGL -framework Appkit -framework OpenCL
 
-.c.o:
-	gcc $(FLAGS) -Ilibft -o $@ -c $<
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
 
-$(LIB): $(LIB_OBJ)
-	@ar rc $(LIB) $(LIB_OBJ)
-	@ranlib $(LIB)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c includes/fractol.h | $(OBJ_DIR)
+	gcc $(FLAGS) -I includes -o $@ -c $<
+
+$(LIB):
+	@make -C $(LIB_DIR)
 
 $(MLX):
-	cd minilibx_macos && make
+	@make -C $(MLX_DIR)
 
 clean:
-	/bin/rm -f $(OBJ)
-	/bin/rm -f $(LIB_OBJ)
+	@/bin/rm -rf $(OBJ_DIR)
+	@make -C $(LIB_DIR) clean
 
 fclean: clean
-	/bin/rm -f $(EXE)
-	/bin/rm -f $(LIB)
-	cd minilibx_macos && make clean
+	@/bin/rm -f $(NAME)
+	@make -C $(LIB_DIR) fclean
+	@make -C $(MLX_DIR) clean
 
 re: fclean all
 
@@ -74,4 +80,4 @@ t: all
 b: all
 	./fractol burning_ship
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re m j t b

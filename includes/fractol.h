@@ -6,7 +6,7 @@
 /*   By: rgyles <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 10:16:40 by rgyles            #+#    #+#             */
-/*   Updated: 2019/01/30 13:57:11 by rgyles           ###   ########.fr       */
+/*   Updated: 2019/04/27 18:54:07 by rgyles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include <fcntl.h>
 # include <math.h>
 # include <OpenCl/cl.h>
-# include "libft/libft.h"
-# include "minilibx_macos/mlx.h"
+# include "../libft/libft.h"
+# include "../minilibx_macos/mlx.h"
 
 # define WIN_WIDTH 1200
 # define WIN_HEIGHT 1200
