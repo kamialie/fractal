@@ -46,7 +46,7 @@ static t_map	*ft_init_map(void)
 	map->c_imag = 0.156;
 	map->step = (map->imag_max - map->imag_min) / WIN_WIDTH;
 	map->mlx = ft_init_mlx();
-	map->gpu = ft_gpu_init(ft_get_source_file("ft_gpu.cl"));
+	map->gpu = ft_gpu_init(ft_get_source_file("sources/ft_gpu.cl"));
 	return (map);
 }
 
