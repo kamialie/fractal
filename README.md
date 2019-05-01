@@ -1,8 +1,8 @@
 # fractal
 
-Graphical project that demonstrates ther use of mathimatical notions with the example of complex numbers.
+Graphical project that demonstrates the use of mathimatical notions with the example of complex numbers.
 
-Term fractal was populated by Benoit Mandelbrot, and I'm going to show the Mandelbrot set and its variation.
+Term "fractal" became really popular after work done by Benoit Mandelbrot, and I'm going to show the Mandelbrot set and its variations.
 
 Good starting point to understand what fractals are is a wikipedia page, which I included in references.
 
@@ -18,7 +18,7 @@ Enjoy the beauty of fractals!
 - g - go to GPU mode
 - 2/3 - color modes
 - s/m - more color modes
-- - / = - decrease/add iterations (depth of fractal)
+- =/- - add/decrease iterations (depth of fractal)
 - scroll in/out - zoom in/out
 - mouse right-click / arrows - move around
 - mouse left-click - change constants in julia set
@@ -43,6 +43,7 @@ make re - remove all temporary files and compile the project again
 
 Fractal:
 
+- https://en.wikipedia.org/wiki/Fractal
 - https://en.wikipedia.org/wiki/Mandelbrot_set
 - https://youtu.be/NGMRB4O922I
 
