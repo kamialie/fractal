@@ -6,7 +6,7 @@
 /*   By: rgyles <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 10:12:05 by rgyles            #+#    #+#             */
-/*   Updated: 2019/01/30 15:10:54 by rgyles           ###   ########.fr       */
+/*   Updated: 2019/05/01 13:03:37 by rgyles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void		ft_allocator(char *input, t_map *map)
 		map->map = 3;
 	else
 	{
-		ft_putstr("usage: ./fractol [mandelbrot/julia/burning_ship/tricorn]\n");
+		ft_putstr("usage: ./fractal [mandelbrot/julia/burning_ship/tricorn]\n");
 		exit(0);
 	}
 }
@@ -72,7 +72,7 @@ int				main(int args, char *argv[])
 	t_map	*map;
 
 	if (args != 2)
-		ft_putstr("usage: ./fractol [mandelbrot/julia/burning_ship/tricorn]\n");
+		ft_putstr("usage: ./fractal [mandelbrot/julia/burning_ship/tricorn]\n");
 	else
 	{
 		map = ft_init_map();
