@@ -12,6 +12,8 @@ Most of the options are supported while in GPU mode. Please press 'g' to change 
 
 Enjoy the beauty of fractals!
 
+[UPD] GPU only works on macOS up to version 10.14, since Apple doesnt support OpenCL and OpenGL starting from 10.14. Rewriting in progress
+
 ### UI
 
 - 1 - return to default position
